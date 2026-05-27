@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caught Up 417 — Are You Ready?</title>
+  <meta name="description" content="A pre-tribulation rapture readiness companion rooted in 1 Thessalonians 4:17. Study the Word. Watch the signs. Be ready." />
+  <meta property="og:title" content="Caught Up 417 — Are You Ready?" />
+  <meta property="og:description" content="A faith-based readiness companion rooted in 1 Thessalonians 4:17." />
+  <meta property="og:image" content="https://caughtup417.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-dim: rgba(201,168,76,0.45);
+      --gold-faint: rgba(201,168,76,0.12);
+      --gold-glow: rgba(201,168,76,0.28);
+      --cream: rgba(240,230,204,0.85);
+      --cream-dim: rgba(240,230,204,0.55);
+      --white: #ffffff;
+      --bg-deep: #050810;
+      --bg-mid: #080d1c;
+      --bg-card: rgba(14,19,40,0.95);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--white);
+      font-family: 'Lora', serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── STAR FIELD ── */
+    #stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 50%;
+      animation: twinkle var(--d, 4s) ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: var(--op, 0.6); transform: scale(1); }
+    }
+
+    /* ── AURORA BG ── */
+    .aurora {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(12,30,80,0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 60% at 80% 90%, rgba(8,20,60,0.35) 0%, transparent 60%),
+        linear-gradient(180deg, #050810 0%, #08101f 40%, #060c1a 100%);
+    }
+
+    /* ── CONTENT STACK ── */
+    .page { position: relative; z-index: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.36em;
+      color: var(--gold-dim);
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      animation: fadeUp 0.9s ease both;
+      animation-delay: 0.1s;
+    }
+
+    .brand {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(48px, 10vw, 96px);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-shadow:
+        0 0 60px rgba(201,168,76,0.5),
+        0 0 120px rgba(201,168,76,0.2),
+        0 4px 12px rgba(0,0,0,0.7);
+      animation: fadeUp 1s ease both;
+      animation-delay: 0.25s;
+    }
+
+    .brand-sub {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(9px, 2vw, 13px);
+      letter-spacing: 0.28em;
+      color: var(--gold-dim);
+      margin-top: 10px;
+      margin-bottom: 36px;
+      animation: fadeUp 1s ease both;
+      animation-delay: 0.4s;
+    }
+
+    .divider {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      margin: 0 auto 36px;
+      animation: fadeUp 1s ease both;
+      animation-delay: 0.5s;
+    }
+
+    .verse-block {
+      max-width: 580px;
+      margin: 0 auto 44px;
+      animation: fadeUp 1s ease both;
+      animation-delay: 0.65s;
+    }
+    .verse-block blockquote {
+      font-family: 'Lora', serif;
+      font-size: clamp(15px, 2.5vw, 20px);
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+    .verse-ref {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+    }
+
+    .cta-wrap {
+      animation: fadeUp 1s ease both;
+      animation-delay: 0.85s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #07090f;
+      background: linear-gradient(135deg, #C9A84C 0%, #ddb94e 50%, #b8943c 100%);
+      border: none;
+      border-radius: 10px;
+      padding: 18px 44px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow:
+        0 6px 30px rgba(201,168,76,0.42),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(201,168,76,0.55), inset 0 1px 0 rgba(255,255,255,0.18); }
+    .cta-primary:hover::before { opacity: 1; }
+
+    .cta-note {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--gold-dim);
+    }
+
+    /* ── SCROLL ARROW ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: fadeUp 1s ease both, pulse-down 2s ease-in-out infinite;
+      animation-delay: 1.5s, 2.5s;
+    }
+    .scroll-hint span {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+    }
+    .scroll-hint svg { opacity: 0.4; }
+    @keyframes pulse-down {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 24px; }
+
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.3;
+      margin-bottom: 22px;
+      text-shadow: 0 0 30px rgba(201,168,76,0.2);
+    }
+
+    .section-body {
+      font-family: 'Lora', serif;
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--cream);
+      line-height: 1.9;
+    }
+
+    /* ── PILLARS ── */
+    .pillars {
+      background: linear-gradient(180deg, transparent 0%, rgba(201,168,76,0.03) 50%, transparent 100%);
+      border-top: 1px solid rgba(201,168,76,0.08);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.16);
+      border-radius: 14px;
+      padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .pillar-card:hover { border-color: rgba(201,168,76,0.32); transform: translateY(-3px); }
+    .pillar-card:hover::before { opacity: 1; }
+
+    .pillar-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+    .pillar-title {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .pillar-text {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      color: var(--cream-dim);
+      line-height: 1.75;
+    }
+
+    /* ── VERSE BAND ── */
+    .verse-band {
+      background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(10,14,30,0.6) 100%);
+      border-top: 1px solid rgba(201,168,76,0.14);
+      border-bottom: 1px solid rgba(201,168,76,0.14);
+      text-align: center;
+      padding: 64px 24px;
+    }
+    .verse-band blockquote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: clamp(17px, 3vw, 24px);
+      color: var(--cream);
+      line-height: 1.85;
+      max-width: 680px;
+      margin: 0 auto 18px;
+    }
+    .verse-band .ref {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+    }
+
+    /* ── DOCTRINE ── */
+    .doctrine-block {
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 14px;
+      padding: 32px 28px;
+      margin-top: 36px;
+      border-left: 3px solid var(--gold);
+    }
+    .doctrine-block p {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      color: var(--cream);
+      line-height: 1.9;
+    }
+    .doctrine-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .tag {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      background: var(--gold-faint);
+      border: 1px solid rgba(201,168,76,0.22);
+      border-radius: 30px;
+      padding: 5px 14px;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 100px 24px;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    }
+    .final-cta .brand-mark {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 50px rgba(201,168,76,0.45), 0 2px 8px rgba(0,0,0,0.6);
+      margin-bottom: 12px;
+    }
+    .final-cta .tagline {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--cream-dim);
+      margin-bottom: 44px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.08);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-text {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: rgba(201,168,76,0.3);
+    }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
+    .footer-links a {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(201,168,76,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .doctrine-block { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Star Field -->
+<div id="stars" aria-hidden="true"></div>
+<!-- Aurora -->
+<div class="aurora" aria-hidden="true"></div>
+
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="eyebrow">✦ &nbsp; PulseNetworkHoldings LLC &nbsp; ✦</div>
+    <h1 class="brand">CAUGHT UP 417</h1>
+    <p class="brand-sub">1 THESSALONIANS 4:17 &nbsp;·&nbsp; KJV</p>
+    <div class="divider"></div>
+    <div class="verse-block">
+      <blockquote>
+        "Then we which are alive and remain shall be caught up together with them
+        in the clouds, to meet the Lord in the air: and so shall we ever be with the Lord."
+      </blockquote>
+      <p class="verse-ref">— 1 THESSALONIANS 4:17 (KJV)</p>
+    </div>
+    <div class="cta-wrap">
+      <a href="https://app.caughtup417.com" class="cta-primary">
+        ✦ &nbsp; ENTER THE APP &nbsp; ✦
+      </a>
+      <p class="cta-note">STUDY &nbsp;·&nbsp; WATCH &nbsp;·&nbsp; BE READY</p>
+    </div>
+    <div class="scroll-hint">
+      <span>SCROLL</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3v10M8 13l-4-4M8 13l4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ MISSION ══ -->
+  <section>
+    <div class="section-inner reveal">
+      <p class="section-label">✦ &nbsp; Our Mission</p>
+      <h2 class="section-title">This Is Not a Passive Tool.<br>This Is a Readiness Movement.</h2>
+      <p class="section-body">
+        Caught Up 417 is a faith-based companion built for one purpose: to help believers study the Word,
+        watch for the Lord's return, and stay ready at all times. The hour is near. The signs are clear.
+        And the question every soul must answer remains the same — <em>are you ready?</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ PILLARS ══ -->
+  <section class="pillars">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">✦ &nbsp; What's Inside</p>
+        <h2 class="section-title">Everything You Need<br>to Stay Watchful</h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card reveal" style="transition-delay: 0.05s">
+          <div class="pillar-icon">📖</div>
+          <div class="pillar-title">Daily Verse</div>
+          <p class="pillar-text">Scripture selected for every day of the week — rooted in readiness, anchored in the King James Bible.</p>
+        </div>
+        <div class="pillar-card reveal" style="transition-delay: 0.12s">
+          <div class="pillar-icon">🔍</div>
+          <div class="pillar-title">Prophecy Tracker</div>
+          <p class="pillar-text">Watch end-times prophecy unfold in real time. Connect what you see in the world to what the Word already said.</p>
+        </div>
+        <div class="pillar-card reveal" style="transition-delay: 0.19s">
+          <div class="pillar-icon">🕯️</div>
+          <div class="pillar-title">Daily Focus</div>
+          <p class="pillar-text">A practical faith challenge each day — not religion, but action. Walk it out in the real world.</p>
+        </div>
+        <div class="pillar-card reveal" style="transition-delay: 0.26s">
+          <div class="pillar-icon">🤖</div>
+          <div class="pillar-title">AI Bible Study</div>
+          <p class="pillar-text">Deep-dive any passage with AI-powered study tools trained on the Word — never a substitute for the Holy Spirit, always a tool for deeper understanding.</p>
+        </div>
+        <div class="pillar-card reveal" style="transition-delay: 0.33s">
+          <div class="pillar-icon">📓</div>
+          <div class="pillar-title">Personal Journal</div>
+          <p class="pillar-text">Write what speaks to you. Record your walk. The Spirit moves — write it down before it fades.</p>
+        </div>
+        <div class="pillar-card reveal" style="transition-delay: 0.4s">
+          <div class="pillar-icon">🎁</div>
+          <div class="pillar-title">Gift Salvation</div>
+          <p class="pillar-text">Send the Gospel to someone you love. One tap — the full plan of salvation delivered to their inbox.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VERSE BAND ══ -->
+  <div class="verse-band reveal">
+    <blockquote>
+      "Therefore be ye also ready: for in such an hour as ye think not the Son of man cometh."
+    </blockquote>
+    <p class="ref">— MATTHEW 24:44 (KJV)</p>
+  </div>
+
+  <!-- ══ DOCTRINE ══ -->
+  <section>
+    <div class="section-inner reveal">
+      <p class="section-label">✦ &nbsp; Doctrinal Position</p>
+      <h2 class="section-title">Pre-Tribulation.<br>Pre-Wrath. Pre-Ready.</h2>
+      <p class="section-body">
+        Caught Up 417 holds a pre-tribulation rapture position — not as a reason to be passive,
+        but as a call to be <em>more</em> ready. God has not appointed us to wrath.
+        That truth is not an excuse to be comfortable. It is a reason to burn brighter,
+        reach further, and watch with greater urgency.
+      </p>
+      <div class="doctrine-block">
+        <p>
+          "For God hath not appointed us to wrath, but to obtain salvation by our Lord Jesus Christ."
+        </p>
+        <div class="doctrine-tags">
+          <span class="tag">1 THESSALONIANS 5:9</span>
+          <span class="tag">MATTHEW 24:44</span>
+          <span class="tag">ROMANS 5:9</span>
+          <span class="tag">MATTHEW 25:13</span>
+          <span class="tag">KJV ONLY</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECOND VERSE BAND ══ -->
+  <div class="verse-band reveal">
+    <blockquote>
+      "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh."
+    </blockquote>
+    <p class="ref">— MATTHEW 25:13 (KJV)</p>
+  </div>
+
+  <!-- ══ FINAL CTA ══ -->
+  <section class="final-cta reveal">
+    <div class="brand-mark">CAUGHT UP 417</div>
+    <p class="tagline">The hour is near. The door is still open.</p>
+    <div class="divider" style="margin-bottom: 40px;"></div>
+    <div class="cta-wrap">
+      <a href="https://app.caughtup417.com" class="cta-primary">
+        ✦ &nbsp; ENTER THE APP &nbsp; ✦
+      </a>
+      <p class="cta-note">STUDY &nbsp;·&nbsp; WATCH &nbsp;·&nbsp; BE READY</p>
+    </div>
+    <p style="font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.18em; color: rgba(201,168,76,0.3); margin-top: 48px;">
+      A PULSENETWORKHOLDINGS LLC MINISTRY
+    </p>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <p class="footer-text">© 2025 PULSEnetworkholdings LLC — ALL RIGHTS RESERVED</p>
+    <div class="footer-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms-of-service">Terms of Service</a>
+      <a href="https://app.caughtup417.com">Enter App</a>
+    </div>
+  </footer>
+
+</div><!-- /.page -->
+
+<script>
+  /* ── Star Field Generator ── */
+  (function() {
+    const container = document.getElementById('stars');
+    const count = 140;
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 1.8 + 0.4;
+      star.style.cssText = [
+        `width:${size}px`,
+        `height:${size}px`,
+        `left:${Math.random()*100}%`,
+        `top:${Math.random()*100}%`,
+        `--d:${(Math.random()*4+2).toFixed(1)}s`,
+        `--op:${(Math.random()*0.55+0.2).toFixed(2)}`,
+        `animation-delay:${(Math.random()*6).toFixed(1)}s`
+      ].join(';');
+      container.appendChild(star);
+    }
+  })();
+
+  /* ── Scroll Reveal ── */
+  (function() {
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(el => io.observe(el));
+  })();
+</script>
+</body>
+</html>
